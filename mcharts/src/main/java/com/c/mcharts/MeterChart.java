@@ -184,7 +184,7 @@ public class MeterChart extends View {
         canvas.drawCircle(centerX, centerY, 15, pointCirclePaint);
 
 
-        String drawText = format.format((int) (topTextInt * progress)) + "";
+        String drawText = format.format((int) (topTextInt * animValue)) + "";
 
         int startY = centerY + 120;
 
@@ -259,8 +259,9 @@ public class MeterChart extends View {
         pointPath.close();
     }
 
-
+    private float animValue;
     void setAnimProgress(float value) {
+        this.animValue = value;
         progress = temp * value;
         invalidate();
     }
